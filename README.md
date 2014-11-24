@@ -14,6 +14,7 @@ TLDR:
 
 ### Configuration
 Use your configuration management solution to deliver the following file : 
+
 `/etc/yadtshell/loadbalancerservice.py`
 ```python
 import yadtshell
@@ -79,6 +80,7 @@ Any mk-livestatus capable monitoring solution ([shinken](http://www.shinken-moni
 
 ### Configuration
 Use your configuration management solution to deliver the following file : 
+
 `/etc/yadtshell/livestatusservice.py`
 ```python
 import yadtshell
@@ -95,7 +97,7 @@ Now you can use the following snippet in a `yadt.conf.d` directory:
 services:
     monitoring:
         class: yadtshell_plugins.services.LivestatusService
-        livestatus_server: "your-monitoring-server.domain"
+        livestatus_server: your-monitoring-server.domain
 ```
 Of course you should also create a dependency so that this service is actually started and stopped when adequate.
 A common use case if you're also load balancing is to have the load balancing service depend on the monitoring service (`needs_services: ["monitoring"]`) and then have the monitoring service depend on your app (`needs_service: ["tomcat-or-httpd-or-whatever-container-you-use"]`)
