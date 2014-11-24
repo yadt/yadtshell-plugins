@@ -100,4 +100,4 @@ services:
         livestatus_server: your-monitoring-server.domain
 ```
 Of course you should also create a dependency so that this service is actually started and stopped when adequate.
-A common use case if you're also load balancing is to have the load balancing service depend on the monitoring service (`needs_services: ["monitoring"]`) and then have the monitoring service depend on your app (`needs_service: ["tomcat-or-httpd-or-whatever-container-you-use"]`)
+A common use case if you're also load balancing is to have the load balancing service depend on the monitoring service (`needs_services: ["monitoring"]`) and then have the monitoring service depend on your app (`needs_services: ["tomcat-or-httpd-or-whatever-container-you-use"]`)
